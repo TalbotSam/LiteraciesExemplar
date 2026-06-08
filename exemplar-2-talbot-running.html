@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- You do NOT need to change anything above this line
+    Lines 1 to 6 help the browser display the website correctly -->
+
+
+    <title>Mr Talbot's Running Website</title>
+
+    <!-- Styling section: controls colours, fonts and layout -->
+    <!-- Try changing some of the colours and sizes and see how it changes the website -->
+
+    <style>
+
+        body {
+            font-family: Arial;
+            margin: 0;
+            background-color: white;
+            color: #000000;
+        }
+
+        header {
+            background-color: green;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        nav {
+            background-color: white;
+            text-align: center;
+            padding: 12px;
+        }
+
+        nav a {
+            color: green;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        main {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        section {
+            background-color: white;
+            padding: 30px;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        footer {
+            background-color: green;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Main content of the website -->
+    <!-- This is where all the text and content goes-->
+
+    <header>
+        <h1>Mr Talbot's Running Website</h1>
+        <p>I think running is cool and you should as well!</p>
+    </header>
+
+    <!-- Navigation links -->
+
+    <nav>
+        <a href="#why">Why I Run</a>
+        <a href="#benefits">Health Benefits</a>
+        <a href="#tips">Beginner Tips</a>
+        <a href="#marathon">Adelaide Marathon</a>
+        <a href="#calculator">Running Calculator</a>
+    </nav>
+
+    <main>
+
+        <!-- Each section contains a title, text and an image -->
+
+        <section id="why">
+
+            <h2>Why I Like Running</h2>
+
+            <img src="mr-talbot-running.png" alt="Mr Talbot running">
+
+            <p>
+                Running is one of my favourite hobbies because it helps me stay fit, it's a great way to spend time outdoors, and you can steadily work towards new goals. 
+            </p>
+                I enjoy challenging myself and seeing improvement over time. <b>I look forward to Sports Day every year!</b>
+            </p>
+
+            <hr>
+
+        </section>
+
+        <section id="benefits">
+
+            <h2>Health Benefits of Running</h2>
+
+            <p>
+                Running can improve fitness, strengthen the heart and help reduce
+                stress. It's a simple activity that can be done almost anywhere
+                and requires very little equipment. Although you do want a good pair of shoes. 
+            </p>
+            <p>
+                In the photo above I am running at Nantu Wama Parkrun in North Adelaide. 'Nantu Wama' is a word from the Kaurna language which means 'horse plain'. On some days you can see the horses in the paddock that the Parkrun course goes around.
+            </p>
+            <p> 
+                <i>🐴 Neigh 🐴</i>
+            </p>
+
+            <hr>
+
+        </section>
+
+        <section id="tips">
+
+            <h2>Tips for Beginner Runners</h2>
+            <p>
+                Here are some of my tips for beginner runners. I have made lots of mistakes over my many years of running so heed my advice:
+            </p>
+            <ul>
+                <li>Start slowly.</li>
+                <li>Wear comfortable and supportive shoes.</li>
+                <li>Stay hydrated.</li>
+                <li>Take some rest days.</li>
+                <li>Focus on being consistent.</li>
+                <li>Find some friends to run with.</li>
+            </ul>
+            <p>
+                If you follow this advice you'll be running like me in no time!
+            </p>
+            <img src="mr-talbot-winner.png" alt="Mr Talbot crossing a finish line">
+
+            <hr>
+
+        </section>
+
+        <section id="marathon">
+            <h2>The Adelaide marathon</h2>
+            <p>This year (2026) I ran my first marathon - the Adelaide Marathon. I trained for a long time leading up to it and on the day it was very hard, but I felt very proud (and tired) after completing it.</p>
+            <img src="mr-talbot-marathon.JPEG" alt="Mr Talbot looking tired">
+            <p>
+                My final time was <b>4:05:20!</b>
+            </p>
+            <p>
+                The day after this photo was taken I was extremely sore, but I already want to run it again next year.
+            </p>
+
+            <hr>
+
+
+        </section>
+
+        <!-- This section is different to the others and will call a Javascript function -->
+        <section id="calculator">
+            <h2>Running Calculator</h2>
+            <p>Have you run 5km and want to know your pace per km?</p>
+            <p>
+                Enter your 5k time in minutes and see your average pace per kilometre. I'll also tell you what your marathon time would be if you could manage to hold that pace for 42.2km!
+            </p>
+
+            <label for="time"> 5k Time (in minutes):</label>
+            <input type="number" id="time">
+
+            <button onclick="calculatePace()">
+                Calculate
+            </button>
+            
+            <p id="paceResult"></p>
+            <p id="marathonResult"></p>
+
+            <hr>
+
+        </section>
+
+
+    </main>
+
+    <!-- Footer details -->
+
+    <footer>
+        <p>Created by Mr Talbot</p>
+        <p>Feel free to talk to me about running anytime!</p>
+        <p>🏃</p>
+    </footer>
+
+    <!-- The 'script' contains our Javascript. 
+    This code will allow users to input information and get a output of their 5k pace. Also note comments in Javascript are denoted by "//" which is different to HTML.
+    -->
+
+    <script>
+        //declare the function and then the variables to be used in the function.
+        function calculatePace() {
+            let fiveKmTime = Number(document.getElementById("time").value);
+            let pace = fiveKmTime / 5;
+            let marathonTime = pace * 42.2;
+        
+        // Format and assign a value to the variables declared in the calculator section
+            document.getElementById("paceResult").innerHTML = 
+                "Average pace: " + pace.toFixed(2) + " minutes per km.";
+            document.getElementById("marathonResult").innerHTML = 
+                "Predicted marathon time " + marathonTime.toFixed(0) + " minutes.";            
+        }
+    </script>
+
+</body>
+
+</html>
